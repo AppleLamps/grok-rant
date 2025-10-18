@@ -40,7 +40,7 @@ export default function SearchForm({ onSearch, isLoading }: SearchFormProps) {
     <div className="w-full max-w-2xl mx-auto mobile-spacing">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-3">
+          <label htmlFor="username" className="block text-sm font-medium text-[var(--foreground)] mb-3">
             Enter X (Twitter) Username
           </label>
           <div className="flex flex-col sm:flex-row gap-3">
@@ -56,15 +56,14 @@ export default function SearchForm({ onSearch, isLoading }: SearchFormProps) {
                 placeholder="elonmusk"
                 disabled={isLoading}
                 aria-describedby={error ? "username-error" : undefined}
-                aria-invalid={error ? "true" : "false"}
-                className="w-full pl-10 pr-4 py-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed text-lg transition-all"
+                className="w-full pl-10 pr-4 py-4 border-2 border-gray-600 bg-[var(--navy-light)] text-white rounded-lg focus:ring-2 focus:ring-[var(--gold)] focus:border-[var(--gold)] disabled:bg-gray-800 disabled:cursor-not-allowed text-lg transition-all placeholder:text-gray-500"
               />
             </div>
             <button
               type="submit"
               disabled={isLoading}
               aria-describedby={isLoading ? "loading-status" : undefined}
-              className="btn-animate px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-lg hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none shadow-lg min-h-[56px]"
+              className="btn-animate px-8 py-4 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-dark)] text-black font-bold rounded-lg hover:from-[var(--gold-dark)] hover:to-[var(--gold)] focus:outline-none focus:ring-2 focus:ring-[var(--gold-dark)] focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none shadow-lg min-h-[56px]"
             >
               {isLoading ? (
                 <span className="flex items-center justify-center gap-2">

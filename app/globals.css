@@ -1,31 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Change background to a dark navy blue */
+  --background: #0a192f;
+  /* Change foreground to an off-white */
+  --foreground: #ccd6f6;
+  
+  /* Define our core colors */
   --gold: #D4AF37;
-  --gold-light: #F4E4B0;
   --gold-dark: #B8941E;
   --red-primary: #DC2626;
   --blue-primary: #2563EB;
+  --navy-dark: #0a192f;
+  --navy-light: #112240;
+  --parchment: #fefcf5; /* For the letter */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a192f;
+    --foreground: #ccd6f6;
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--background); /* Apply the dark background */
+  font-family: var(--font-merriweather), -apple-system, BlinkMacSystemFont, 'Segoe UI', serif; /* Change default font */
 }
 
-/* Focus states for accessibility */
+/* Update focus states for new theme */
 *:focus-visible {
-  outline: 3px solid #2563EB;
+  outline: 3px solid var(--gold); /* Gold focus ring */
   outline-offset: 2px;
   border-radius: 4px;
 }

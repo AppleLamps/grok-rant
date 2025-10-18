@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, Inter } from 'next/font/google';
+import { Playfair_Display, Merriweather } from 'next/font/google';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -8,10 +8,12 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
-const inter = Inter({
+// Change Inter to Merriweather for the body font
+const merriweather = Merriweather({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-merriweather',
   display: 'swap',
+  weight: ['400', '700'] // Include weights
 });
 
 export const metadata: Metadata = {
@@ -26,7 +28,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+      {/* Update the body class to use the new font variable */}
+      <body className={`${merriweather.variable} ${playfair.variable} antialiased`}>
         {children}
       </body>
     </html>

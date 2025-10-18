@@ -11,15 +11,15 @@ interface PostsPreviewProps {
 export default function PostsPreview({ analysis, onGenerateLetter, isGenerating }: PostsPreviewProps) {
   return (
     <div className="w-full max-w-4xl mx-auto mt-8 space-y-6 mobile-spacing">
-      <div className="bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-2xl p-6 sm:p-8 border-2 border-blue-200">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">
+      <div className="bg-[var(--navy-light)] rounded-xl shadow-2xl p-6 sm:p-8 border-2 border-[var(--gold)]">
+        <h2 className="text-2xl font-bold text-white mb-4">
           Profile Analysis for @{analysis.username}
         </h2>
 
         <div className="space-y-6">
           {/* Main Topics */}
-          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-900 mb-3 flex items-center gap-2">
+          <div className="bg-[var(--navy-dark)] p-4 rounded-lg border border-gray-700">
+            <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
               <span className="text-2xl">📊</span>
               Main Topics
             </h3>
@@ -27,7 +27,7 @@ export default function PostsPreview({ analysis, onGenerateLetter, isGenerating 
               {analysis.mainTopics.map((topic, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold shadow-sm"
+                  className="px-4 py-2 bg-blue-200 text-blue-900 rounded-full text-sm font-medium shadow-sm"
                 >
                   {topic}
                 </span>
@@ -36,8 +36,8 @@ export default function PostsPreview({ analysis, onGenerateLetter, isGenerating 
           </div>
 
           {/* Personality Traits */}
-          <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-900 mb-3 flex items-center gap-2">
+          <div className="bg-[var(--navy-dark)] p-4 rounded-lg border border-gray-700">
+            <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
               <span className="text-2xl">🧠</span>
               Personality Traits
             </h3>
@@ -45,7 +45,7 @@ export default function PostsPreview({ analysis, onGenerateLetter, isGenerating 
               {analysis.personalityTraits.map((trait, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold shadow-sm"
+                  className="px-4 py-2 bg-green-200 text-green-900 rounded-full text-sm font-medium shadow-sm"
                 >
                   {trait}
                 </span>
@@ -54,17 +54,17 @@ export default function PostsPreview({ analysis, onGenerateLetter, isGenerating 
           </div>
 
           {/* Communication Style */}
-          <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-            <h3 className="text-xl font-bold text-yellow-900 mb-3 flex items-center gap-2">
+          <div className="bg-[var(--navy-dark)] p-4 rounded-lg border border-gray-700">
+            <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
               <span className="text-2xl">💬</span>
               Communication Style
             </h3>
-            <p className="text-gray-700 text-base leading-relaxed">{analysis.communicationStyle}</p>
+            <p className="text-[var(--foreground)] text-base leading-relaxed">{analysis.communicationStyle}</p>
           </div>
 
           {/* Key Interests */}
-          <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-900 mb-3 flex items-center gap-2">
+          <div className="bg-[var(--navy-dark)] p-4 rounded-lg border border-gray-700">
+            <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
               <span className="text-2xl">🎯</span>
               Key Interests
             </h3>
@@ -72,7 +72,7 @@ export default function PostsPreview({ analysis, onGenerateLetter, isGenerating 
               {analysis.keyInterests.map((interest, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold shadow-sm"
+                  className="px-4 py-2 bg-red-200 text-red-900 rounded-full text-sm font-medium shadow-sm"
                 >
                   {interest}
                 </span>
@@ -82,12 +82,12 @@ export default function PostsPreview({ analysis, onGenerateLetter, isGenerating 
         </div>
 
         {/* Generate Letter Button */}
-        <div className="mt-6 pt-6 border-t-2 border-gray-200">
+        <div className="mt-6 pt-6 border-t-2 border-gray-700">
           <button
             type="button"
             onClick={onGenerateLetter}
             disabled={isGenerating}
-            className="btn-animate w-full px-6 py-5 bg-gradient-to-r from-red-600 via-yellow-500 to-blue-600 text-white font-bold text-lg sm:text-xl rounded-xl shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none min-h-[64px]"
+            className="btn-animate w-full px-6 py-5 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-dark)] text-black font-bold text-lg sm:text-xl rounded-xl shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none min-h-[64px]"
           >
             {isGenerating ? (
               <span className="flex items-center justify-center gap-2">

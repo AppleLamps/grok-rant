@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --gold: #D4AF37;
+  --gold-light: #F4E4B0;
+  --gold-dark: #B8941E;
+  --red-primary: #DC2626;
+  --blue-primary: #2563EB;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+  outline: 3px solid #2563EB;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Button animations */
+.btn-animate {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-animate:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-animate:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Success animation */
+@keyframes checkmark {
+  0% {
+    transform: scale(0) rotate(45deg);
+  }
+
+  50% {
+    transform: scale(1.2) rotate(45deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(45deg);
+  }
+}
+
+.checkmark-animate {
+  animation: checkmark 0.4s ease-in-out;
+}
+
+/* Toast slide in animation */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.toast-enter {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.toast-exit {
+  animation: slideOutRight 0.3s ease-in;
+}
+
+/* Toast spacing utility */
+.toast-spacing {
+  margin-top: 0.5rem;
+}
+
+/* Improved mobile spacing */
+@media (max-width: 640px) {
+  .mobile-spacing {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .mobile-spacing-y {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}

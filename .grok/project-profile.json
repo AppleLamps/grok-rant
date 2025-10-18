@@ -1,0 +1,57 @@
+{
+  "projectPath": "C:\\Users\\lucas\\Desktop\\grok-rant",
+  "projectName": "grok-rant",
+  "analyzedAt": 1760728025681,
+  "confidence": 0.625,
+  "codeStyle": {
+    "indentation": "spaces",
+    "indentSize": 2,
+    "lineLength": 100,
+    "quotes": "double",
+    "semicolons": false,
+    "trailingComma": true,
+    "confidence": 0.8
+  },
+  "architecture": {
+    "pattern": "monolithic",
+    "directories": {
+      "routes": [
+        "app\\api\\search-user-posts\\route.ts",
+        "app\\api\\generate-letter\\route.ts"
+      ],
+      "controllers": [],
+      "services": [],
+      "models": [],
+      "utils": [],
+      "tests": []
+    },
+    "confidence": 0.7
+  },
+  "testing": {
+    "framework": "unknown",
+    "approach": "mixed",
+    "coverage": 0,
+    "testLocation": "mixed",
+    "confidence": 0.3
+  },
+  "dependencies": {
+    "packageManager": "npm",
+    "commonImports": {},
+    "internalModules": [],
+    "externalPackages": []
+  },
+  "conventions": {
+    "files": "camelCase",
+    "classes": "PascalCase",
+    "functions": "camelCase",
+    "constants": "UPPER_SNAKE",
+    "testFiles": [],
+    "confidence": 0.7
+  },
+  "gitPatterns": {
+    "conventionalCommits": false,
+    "commitPrefixes": [],
+    "averageCommitSize": 0,
+    "branchNaming": ""
+  }
+}

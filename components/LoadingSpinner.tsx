@@ -32,34 +32,71 @@ export default function LoadingSpinner({ message = 'Loading...' }: LoadingSpinne
   }, []);
 
   return (
-    <div className="w-full max-w-2xl mx-auto mt-12 mobile-spacing">
-      <div className="bg-[var(--navy-light)] rounded-xl shadow-2xl p-8 border-2 border-[var(--gold)]">
-        <div className="flex flex-col items-center justify-center space-y-6">
-          {/* Spinner */}
+    <div className="w-full max-w-4xl mx-auto mt-16 mobile-spacing">
+      <div className="bg-[var(--navy-light)]/95 border-4 border-[var(--gold)]/80 rounded-2xl shadow-2xl p-10 backdrop-blur-sm relative overflow-hidden">
+        {/* Presidential background elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-4 right-4 w-16 h-16">
+            <img src="/seal.svg" alt="" aria-hidden="true" className="w-full h-full" />
+          </div>
+        </div>
+
+        {/* Official status ribbon */}
+        <div className="text-center mb-8">
+          <div className="inline-block bg-gradient-to-r from-red-600 via-white to-blue-600 text-black font-bold text-sm tracking-widest uppercase px-6 py-2 rounded-full shadow-lg border border-white/30">
+            EXECUTIVE PROCESSING UNIT
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center justify-center space-y-8">
+          {/* Enhanced Spinner with presidential seal */}
           <div className="relative" role="status" aria-label="Loading">
-            <div className="w-20 h-20 border-4 border-yellow-200/50 border-t-[var(--gold)] rounded-full animate-spin" aria-hidden="true"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl" aria-hidden="true">
-              🇺🇸
+            <div className="w-24 h-24 border-6 border-yellow-200/30 border-t-[var(--gold)] rounded-full animate-spin shadow-lg" aria-hidden="true"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-[var(--navy-dark)] rounded-full flex items-center justify-center border-2 border-[var(--gold)]/50" aria-hidden="true">
+              <img src="/seal.svg" alt="" className="w-10 h-10 opacity-80" />
             </div>
           </div>
 
-          {/* Message */}
-          <div className="text-center space-y-3">
-            <p className="text-xl font-bold text-white">{message}</p>
-            <p className="text-sm text-gray-300">This may take a moment...</p>
+          {/* Official message */}
+          <div className="text-center space-y-4">
+            <h3 className="text-2xl font-black text-[var(--gold)] uppercase tracking-wide">
+              Presidential Processing Active
+            </h3>
+            <p className="text-lg font-bold text-white">{message}</p>
+            <p className="text-sm text-[var(--foreground)]/80 font-medium">Intelligence analysis in progress...</p>
           </div>
 
-          {/* Trump Quote */}
-          <div className="bg-[var(--navy-dark)] rounded-lg p-4 border-l-4 border-[var(--gold)] shadow-md max-w-md">
-            <p className="text-sm italic text-gray-200 font-medium">"{quote}"</p>
-            <p className="text-xs text-gray-400 mt-2 text-right">- Donald J. Trump (probably)</p>
+          {/* Presidential Quote Box */}
+          <div className="bg-[var(--navy-dark)]/90 border-2 border-[var(--gold)]/60 rounded-xl p-6 shadow-xl backdrop-blur-sm max-w-lg relative">
+            {/* Quote icon */}
+            <div className="absolute -top-3 left-6 bg-[var(--gold)] text-black text-xl font-bold px-2 rounded-full">
+              "
+            </div>
+            <p className="text-base italic text-gray-200 font-semibold leading-relaxed pt-2">"{quote}"</p>
+            <div className="mt-4 pt-4 border-t border-[var(--gold)]/30">
+              <p className="text-sm text-[var(--gold)] font-bold uppercase tracking-wide">
+                — The 45th President of the United States
+              </p>
+            </div>
           </div>
 
-          {/* Progress dots */}
-          <div className="flex gap-2">
-            <div className="w-3 h-3 bg-red-600 rounded-full animate-bounce [animation-delay:0ms]"></div>
-            <div className="w-3 h-3 bg-white border-2 border-[var(--gold)] rounded-full animate-bounce [animation-delay:150ms]"></div>
-            <div className="w-3 h-3 bg-[var(--gold)] rounded-full animate-bounce [animation-delay:300ms]"></div>
+          {/* Enhanced Progress Indicators */}
+          <div className="flex items-center gap-4">
+            <div className="flex gap-3">
+              <div className="w-4 h-4 bg-red-600 rounded-full animate-bounce shadow-lg [animation-delay:0ms]"></div>
+              <div className="w-4 h-4 bg-white border-2 border-[var(--gold)] rounded-full animate-bounce shadow-lg [animation-delay:150ms]"></div>
+              <div className="w-4 h-4 bg-[var(--gold)] rounded-full animate-bounce shadow-lg [animation-delay:300ms]"></div>
+            </div>
+            <span className="text-sm text-[var(--foreground)]/70 font-semibold uppercase tracking-wider">
+              Processing...
+            </span>
+          </div>
+
+          {/* Security clearance indicator */}
+          <div className="bg-black/40 border border-[var(--gold)]/50 rounded-lg px-4 py-2 backdrop-blur-sm">
+            <p className="text-xs text-[var(--gold)] font-bold uppercase tracking-wide text-center">
+              🔐 Security Clearance: ACTIVE • Executive Level Access Granted
+            </p>
           </div>
         </div>
       </div>

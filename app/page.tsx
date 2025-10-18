@@ -98,62 +98,116 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="bg-[var(--navy-light)] border-b-4 border-[var(--gold)] shadow-xl relative overflow-hidden" role="banner">
-        {/* Gold accent stripes */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent"></div>
+      <header className="trump-hero trump-hero-frame relative overflow-hidden" role="banner">
+        {/* Faint stars background */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(2px_2px_at_20px_20px,rgba(255,255,255,0.06),transparent_2px)] [background-size:40px_40px]"></div>
+        {/* Oversized crest watermark */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <img src="/seal.svg" alt="" aria-hidden="true" className="opacity-12 blur-[0.3px] w-[600px] sm:w-[720px] translate-y-4" />
+        </div>
+        {/* Official border frame */}
+        <div className="pointer-events-none absolute inset-0 border-4 border-[var(--gold)]/30 rounded-lg m-4"></div>
+        {/* Corner emblems */}
+        <div className="pointer-events-none absolute top-4 left-4 w-12 h-12 opacity-20">
+          <img src="/seal.svg" alt="" aria-hidden="true" className="w-full h-full" />
+        </div>
+        <div className="pointer-events-none absolute top-4 right-4 w-12 h-12 opacity-20">
+          <img src="/seal.svg" alt="" aria-hidden="true" className="w-full h-full" />
+        </div>
 
-        <div className="container mx-auto px-4 py-8 sm:py-10 relative mobile-spacing">
+        <div className="container mx-auto px-6 py-8 sm:py-12 relative mobile-spacing">
           <div className="flex items-center justify-center mb-3">
-            <span className="text-5xl sm:text-6xl">🇺🇸</span>
+            <div className="presidential-badge w-20 h-20 sm:w-24 sm:h-24 rounded-full trump-gradient-gold flex items-center justify-center border-4 border-white/30 overflow-hidden shadow-2xl">
+              <img src="/seal.svg" alt="Presidential crest" className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-lg" />
+            </div>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center text-white font-[family-name:var(--font-playfair)] leading-tight shadow-[0_2px_4px_rgba(212,175,55,0.5)]">
-            Trump Letter Generator
+          <h1 className="presidential-title text-4xl sm:text-5xl md:text-6xl font-black text-center text-white font-[family-name:var(--font-playfair)] leading-none mt-2 drop-shadow-2xl">
+            TRUMP LETTER<br/>GENERATOR
           </h1>
-          <p className="text-center text-[var(--foreground)] mt-3 text-base sm:text-lg font-medium max-w-2xl mx-auto">
+
+          {/* Decorative divider with eagle elements */}
+          <div className="flex items-center justify-center mt-3 mb-2">
+            <div className="flex items-center gap-3">
+              <div className="w-6 h-px bg-[var(--gold)]"></div>
+              <div className="text-[var(--gold)] text-lg">★</div>
+              <div className="mx-auto h-[3px] w-24 rounded-full trump-gradient-gold shadow-lg"></div>
+              <div className="text-[var(--gold)] text-lg">★</div>
+              <div className="w-6 h-px bg-[var(--gold)]"></div>
+            </div>
+          </div>
+
+          <p className="text-center text-[var(--foreground)] mt-2 text-base sm:text-lg font-medium max-w-2xl mx-auto leading-relaxed">
             Get a personalized letter from President Trump based on your X profile
           </p>
-          <p className="text-center text-sm text-[var(--foreground)] mt-2 flex items-center justify-center gap-2">
-            <span className="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            Powered by Grok AI
-          </p>
+
+          <div className="flex items-center justify-center gap-4 mt-3">
+            <div className="flex items-center gap-2 bg-black/30 px-3 py-1.5 rounded-full border border-white/20">
+              <span className="inline-block w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-lg"></span>
+              <span className="text-xs text-[var(--foreground)] font-semibold">Powered by Grok AI</span>
+            </div>
+          </div>
         </div>
+
+        {/* Enhanced bottom border */}
+        <div className="h-3 trump-gradient-gold shadow-inner"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8 sm:py-12" role="main">
+      <main className="container mx-auto px-6 py-6 sm:py-8 flex-1 relative" role="main">
+        {/* Official content frame */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--gold)]/5 to-transparent pointer-events-none"></div>
+
         {/* Error Display */}
         {error && (
-          <div className="max-w-2xl mx-auto mb-6 mobile-spacing">
-            <div className="bg-red-900/50 border-2 border-red-500 rounded-xl p-5 sm:p-6 shadow-lg">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <div className="max-w-3xl mx-auto mb-8 mobile-spacing">
+            <div className="bg-red-900/60 border-4 border-red-500/80 rounded-xl p-6 sm:p-8 shadow-2xl backdrop-blur-sm relative overflow-hidden">
+              {/* Error background pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-4 right-4 w-16 h-16">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-red-500">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-6 relative">
+                <div className="flex-shrink-0 w-12 h-12 bg-red-600 rounded-full flex items-center justify-center border-2 border-red-400 shadow-lg">
+                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-white font-bold text-lg">Oops! Something went wrong</h3>
-                  <p className="text-red-100 text-base mt-2 font-medium">{error}</p>
-                  <div className="mt-4 p-3 bg-black/30 rounded-lg">
-                    <p className="font-semibold text-red-100 text-sm mb-2">💡 Try these suggestions:</p>
-                    <ul className="space-y-1.5 text-sm text-red-100">
-                      <li className="flex items-start gap-2">
-                        <span className="text-red-300 mt-0.5">•</span>
-                        <span>Double-check the username spelling</span>
+                  <h3 className="text-white font-bold text-xl mb-2">Executive Alert: Operation Failed</h3>
+                  <p className="text-red-100 text-lg font-medium mb-4">{error}</p>
+
+                  <div className="bg-black/40 border border-red-500/30 rounded-lg p-4">
+                    <p className="font-bold text-red-100 text-base mb-3 uppercase tracking-wide">🔧 Troubleshooting Protocol:</p>
+                    <ul className="space-y-2 text-base text-red-100">
+                      <li className="flex items-start gap-3">
+                        <span className="text-red-300 mt-0.5 text-lg">•</span>
+                        <span>Verify username spelling and format</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-red-300 mt-0.5">•</span>
-                        <span>Make sure the account exists and is public</span>
+                      <li className="flex items-start gap-3">
+                        <span className="text-red-300 mt-0.5 text-lg">•</span>
+                        <span>Confirm account is public and active</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-red-300 mt-0.5">•</span>
-                        <span>Wait a moment and try again</span>
+                      <li className="flex items-start gap-3">
+                        <span className="text-red-300 mt-0.5 text-lg">•</span>
+                        <span>Allow system to process request</span>
                       </li>
                     </ul>
                   </div>
                 </div>
+              </div>
+
+              {/* Decorative corner elements */}
+              <div className="absolute top-4 right-4 w-8 h-8 opacity-20">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-red-400">
+                  <path d="M14.23 12.004a2.236 2.236 0 0 0 2.235-2.236 2.236 2.236 0 0 0-2.235-2.236 2.236 2.236 0 0 0-2.235 2.236 2.236 2.236 0 0 0 2.235 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602a3.936 3.936 0 0 0-3.93 3.93c0 3.208 3.108 6.51 8.817 10.17a.5.5 0 0 0 .535 0c5.71-3.66 8.817-7.04 8.817-10.17a3.936 3.936 0 0 0-3.93-3.93z"/>
+                </svg>
               </div>
             </div>
           </div>
@@ -162,6 +216,7 @@ export default function Home() {
         {/* Search Form - Always visible */}
         {(state === 'idle' || state === 'searching') && (
           <>
+            <p className="text-center text-sm text-[var(--foreground)] mb-4 opacity-90">Enter an X (Twitter) username to analyze and generate a personalized Trump-style letter.</p>
             <SearchForm onSearch={handleSearch} isLoading={state === 'searching'} />
             {state === 'searching' && (
               <LoadingSpinner message="Searching X and analyzing posts..." />
@@ -221,47 +276,44 @@ export default function Home() {
           </>
         )}
 
-        {/* Instructions */}
-        {state === 'idle' && (
-          <div className="max-w-3xl mx-auto mt-12 mobile-spacing">
-            <div className="bg-[var(--navy-light)] rounded-xl shadow-xl p-6 sm:p-8 border-2 border-[var(--gold)]">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 font-[family-name:var(--font-playfair)] text-center">
-                How it works:
-              </h2>
-              <ol className="space-y-4 text-[var(--foreground)]">
-                <li className="flex gap-4 items-start">
-                  <span className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[var(--gold)] to-[var(--gold-dark)] text-black rounded-full flex items-center justify-center font-bold text-lg shadow-lg">1</span>
-                  <span className="pt-1 text-base sm:text-lg">Enter any X (Twitter) username</span>
-                </li>
-                <li className="flex gap-4 items-start">
-                  <span className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[var(--gold)] to-[var(--gold-dark)] text-black rounded-full flex items-center justify-center font-bold text-lg shadow-lg">2</span>
-                  <span className="pt-1 text-base sm:text-lg">Grok AI searches and analyzes their posts to understand their interests and personality</span>
-                </li>
-                <li className="flex gap-4 items-start">
-                  <span className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[var(--gold)] to-[var(--gold-dark)] text-black rounded-full flex items-center justify-center font-bold text-lg shadow-lg">3</span>
-                  <span className="pt-1 text-base sm:text-lg">AI generates a personalized letter written in President Trump's distinctive style</span>
-                </li>
-                <li className="flex gap-4 items-start">
-                  <span className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[var(--gold)] to-[var(--gold-dark)] text-black rounded-full flex items-center justify-center font-bold text-lg shadow-lg">4</span>
-                  <span className="pt-1 text-base sm:text-lg">Copy, download, or share your letter!</span>
-                </li>
-              </ol>
-              <div className="mt-8 p-4 sm:p-5 bg-yellow-900/50 border-2 border-yellow-500 rounded-lg shadow-md">
-                <p className="text-sm sm:text-base text-yellow-100">
-                  <strong className="text-yellow-100">⚠️ Note:</strong> This is a parody/entertainment tool. Letters are generated by AI and are not actually from Donald Trump.
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
       </main>
 
       {/* Footer */}
-      <footer className="bg-black/50 border-t-2 border-[var(--gold)] mt-20" role="contentinfo">
-        <div className="container mx-auto px-4 py-8 text-center text-[var(--foreground)]">
-          <p className="font-semibold text-base">Built with Next.js, React, and Grok AI</p>
-          <p className="mt-2 text-sm">For entertainment purposes only</p>
-          <p className="mt-3 text-xs text-[var(--foreground)]">© 2024 Trump Letter Generator</p>
+      <footer className="bg-black/60 border-t-4 border-[var(--gold)]/80 relative overflow-hidden" role="contentinfo">
+        {/* Footer background elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-2 left-8 w-12 h-12">
+            <img src="/seal.svg" alt="" aria-hidden="true" className="w-full h-full" />
+          </div>
+          <div className="absolute top-2 right-8 w-12 h-12">
+            <img src="/seal.svg" alt="" aria-hidden="true" className="w-full h-full" />
+          </div>
+        </div>
+
+        {/* Official footer seal */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="bg-[var(--navy-dark)]/80 border-2 border-[var(--gold)]/50 rounded-full p-4 backdrop-blur-sm">
+            <img src="/seal.svg" alt="Official Seal" className="w-8 h-8 opacity-60" />
+          </div>
+        </div>
+
+        <div className="container mx-auto px-6 py-4 text-center relative">
+          {/* Main footer content */}
+          <div className="space-y-2">
+            <p className="text-[var(--foreground)] font-semibold text-xs">
+              © 2024 Presidential Letter Generator
+            </p>
+            <p className="text-yellow-200/80 text-[10px] font-medium">
+              ⚠️ Parody tool for entertainment only • AI-generated content • Not official correspondence
+            </p>
+          </div>
+
+          {/* Decorative divider */}
+          <div className="mt-3 flex items-center justify-center gap-3">
+            <div className="w-12 h-px bg-[var(--gold)]/50"></div>
+            <div className="text-[var(--gold)] text-xs">★★★</div>
+            <div className="w-12 h-px bg-[var(--gold)]/50"></div>
+          </div>
         </div>
       </footer>
     </div>

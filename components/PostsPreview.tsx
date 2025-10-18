@@ -12,7 +12,7 @@ export default function PostsPreview({ analysis, onGenerateLetter, isGenerating 
   return (
     <div className="w-full max-w-4xl mx-auto mt-8 space-y-6 mobile-spacing">
       <div className="bg-[var(--navy-light)] rounded-xl shadow-2xl p-6 sm:p-8 border-2 border-[var(--gold)]">
-        <h2 className="text-2xl font-bold text-white mb-4">
+        <h2 className="text-2xl font-bold text-white mb-4 font-[family-name:var(--font-playfair)]">
           Profile Analysis for @{analysis.username}
         </h2>
 
@@ -27,7 +27,7 @@ export default function PostsPreview({ analysis, onGenerateLetter, isGenerating 
               {analysis.mainTopics.map((topic, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-blue-200 text-blue-900 rounded-full text-sm font-medium shadow-sm"
+                  className="chip chip-blue shadow-sm"
                 >
                   {topic}
                 </span>
@@ -45,7 +45,7 @@ export default function PostsPreview({ analysis, onGenerateLetter, isGenerating 
               {analysis.personalityTraits.map((trait, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-green-200 text-green-900 rounded-full text-sm font-medium shadow-sm"
+                  className="chip chip-green shadow-sm"
                 >
                   {trait}
                 </span>
@@ -72,7 +72,7 @@ export default function PostsPreview({ analysis, onGenerateLetter, isGenerating 
               {analysis.keyInterests.map((interest, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-red-200 text-red-900 rounded-full text-sm font-medium shadow-sm"
+                  className="chip chip-red shadow-sm"
                 >
                   {interest}
                 </span>
@@ -87,7 +87,7 @@ export default function PostsPreview({ analysis, onGenerateLetter, isGenerating 
             type="button"
             onClick={onGenerateLetter}
             disabled={isGenerating}
-            className="btn-animate w-full px-6 py-5 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-dark)] text-black font-bold text-lg sm:text-xl rounded-xl shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none min-h-[64px]"
+            className="btn-animate w-full px-6 py-5 trump-gradient-gold text-black font-bold text-lg sm:text-xl rounded-xl shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none min-h-[64px] border border-white/10"
           >
             {isGenerating ? (
               <span className="flex items-center justify-center gap-2">

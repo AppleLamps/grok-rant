@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Start both frontend and backend servers
+# Start both frontend and backend servers with proper cleanup
 
 echo "🚀 Starting Trump Letter Generator..."
 echo ""
@@ -15,6 +15,34 @@ if [ ! -d "backend/venv" ]; then
     echo "  pip install -r requirements.txt"
     exit 1
 fi
+
+# Cleanup function to stop all servers
+cleanup() {
+    echo ""
+    echo "🧹 Stopping servers..."
+    
+    # Kill backend process
+    if [ ! -z "$BACKEND_PID" ]; then
+        kill $BACKEND_PID 2>/dev/null
+        echo "✓ Backend stopped"
+    fi
+    
+    # Kill frontend process
+    if [ ! -z "$FRONTEND_PID" ]; then
+        kill $FRONTEND_PID 2>/dev/null
+        echo "✓ Frontend stopped"
+    fi
+    
+    # Also kill any processes on ports 8000 and 3000 as backup
+    lsof -ti:8000 | xargs kill -9 2>/dev/null
+    lsof -ti:3000 | xargs kill -9 2>/dev/null
+    
+    echo "✅ All servers stopped!"
+    exit 0
+}
+
+# Register cleanup on script exit (Ctrl+C, terminal close, etc.)
+trap cleanup EXIT INT TERM
 
 # Start backend in background
 echo "🐍 Starting Python backend (port 8000)..."
@@ -37,9 +65,10 @@ echo "✅ Both servers started!"
 echo "   Backend:  http://localhost:8000"
 echo "   Frontend: http://localhost:3000"
 echo ""
-echo "Press Ctrl+C to stop both servers"
+echo "📝 Note: Servers will automatically stop when you close this terminal or press Ctrl+C"
+echo "🛑 Press Ctrl+C to stop all servers"
+echo ""
 
-# Wait for Ctrl+C
-trap "kill $BACKEND_PID $FRONTEND_PID; exit" INT
+# Wait for processes (will trigger cleanup trap on exit)
 wait
 

@@ -113,9 +113,32 @@ npm run dev
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
+## Quick Start (Easy Method)
+
+### Starting the Application
+
+Simply double-click `start.bat` (Windows) or run:
+```bash
+./start.bat    # Windows
+./start.sh     # Mac/Linux
+```
+
+This will:
+- Start both the backend (port 8000) and frontend (port 3000)
+- Keep servers running in minimized windows
+- **Automatically stop all servers** when you close the terminal or press Ctrl+C
+
+### Stopping the Application
+
+**Option 1:** Close the terminal window that's running the servers
+**Option 2:** Press Ctrl+C in the terminal
+**Option 3:** Double-click `stop.bat` or run `./stop.bat` to manually stop all servers
+
+The new scripts ensure that servers are **always properly cleaned up** when PowerShell is closed - no more orphaned processes!
+
 ## Usage
 
-**Make sure both servers are running:**
+**Make sure both servers are running** (use `start.bat` or follow manual setup):
 - Backend: http://localhost:8000
 - Frontend: http://localhost:3000
 
